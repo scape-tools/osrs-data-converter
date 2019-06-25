@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane fx:id="osrcPane" onMouseClicked="#setCurrentStage" onMouseDragged="#handleMouseDragged" onMousePressed="#handleMousePressed" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.nshusa.app.osdc.controller.OsrcController">
+   <center>
+      <StackPane prefHeight="71.0" prefWidth="272.0">
+          <children>
+              <Button fx:id="requestBtn" mnemonicParsing="false" onAction="#requestRevision" prefHeight="80.0" prefWidth="288.0" text="Request Revision" textFill="WHITE">
+                  <font>
+                      <Font size="24.0" />
+                  </font>
+              </Button>
+              <Text fx:id="statusText" strokeType="OUTSIDE" strokeWidth="0.0">
+                  <font>
+                      <Font name="Calibri" size="36.0" />
+                  </font>
+              </Text>
+          </children>
+      </StackPane>
+   </center>
+   <top>
+      <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="minBtn" minHeight="20.0" minWidth="45.0" mnemonicParsing="false" onAction="#minimizeProgram">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="maxBtn" minHeight="20.0" minWidth="45.0" mnemonicParsing="false">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="closeBtn" minHeight="20.0" minWidth="45.0" mnemonicParsing="false" onAction="#closeProgram">
+               <HBox.margin>
+                  <Insets bottom="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

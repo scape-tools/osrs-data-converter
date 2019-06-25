@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane onMouseClicked="#setCurrentStage" onMouseDragged="#handleMouseDragged" onMousePressed="#handleMousePressed" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.nshusa.app.osdc.controller.Controller">
+   <center>
+      <VBox alignment="CENTER">
+         <children>
+            <TitledPane collapsible="false" text="Definitions">
+               <content>
+                  <GridPane hgap="5.0" vgap="5.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#dumpItemDefs" prefHeight="127.0" prefWidth="289.0" text="Item">
+                           <tooltip>
+                              <Tooltip text="Exports obj.dat and obj.idx" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpNpcDefs" prefHeight="127.0" prefWidth="289.0" text="Npc" GridPane.columnIndex="1">
+                           <tooltip>
+                              <Tooltip text="Exports npc.dat and npc.idx" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpObjectDefs" prefHeight="127.0" prefWidth="289.0" text="Object" GridPane.columnIndex="2">
+                           <tooltip>
+                              <Tooltip text="Exports loc.dat and loc.idx" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpAnimationDefs" prefHeight="127.0" prefWidth="289.0" text="Anim" GridPane.columnIndex="3">
+                           <tooltip>
+                              <Tooltip text="Exports seq.dat" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpGraphicDefs" prefHeight="127.0" prefWidth="289.0" text="Gfx" GridPane.rowIndex="1">
+                           <tooltip>
+                              <Tooltip text="Exports spotanim.dat" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpVarbitDefs" prefHeight="127.0" prefWidth="289.0" text="Varbit" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <tooltip>
+                              <Tooltip text="Exports varbit.dat" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpFloorDefs" prefHeight="127.0" prefWidth="289.0" text="Flo" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <tooltip>
+                              <Tooltip text="Exports flo.dat" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpIdk" prefHeight="127.0" prefWidth="289.0" text="Idk" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <tooltip>
+                              <Tooltip text="Exports idk.dat" />
+                           </tooltip>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane collapsible="false" text="Indexes">
+               <content>
+                  <GridPane hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#dumpModels" prefHeight="114.0" prefWidth="296.0" text="Models [Index 1]">
+                           <tooltip>
+                              <Tooltip text="Exports models" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpAnimations" prefHeight="120.0" prefWidth="323.0" text="Animations [Index 2]" GridPane.columnIndex="1">
+                           <tooltip>
+                              <Tooltip text="Exports animations" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpMidis" prefHeight="80.0" prefWidth="362.0" text="Midis [Index 3]" GridPane.rowIndex="1">
+                           <tooltip>
+                              <Tooltip text="Exports midis" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpMaps" prefHeight="83.0" prefWidth="352.0" text="Maps [Index 4]" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <tooltip>
+                              <Tooltip text="Exports maps" />
+                           </tooltip>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" text="Fields">
+               <content>
+                  <GridPane hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#dumpItemDefFields" prefHeight="137.0" prefWidth="269.0" text="Item">
+                           <tooltip>
+                              <Tooltip text="Exports Item def fields into java code" />
+                           </tooltip>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpNpcDefFields" prefHeight="110.0" prefWidth="180.0" text="Npc" GridPane.columnIndex="1">
+                           <tooltip>
+                              <Tooltip text="Export Npc def fields into java code" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpObjectDefFields" prefHeight="101.0" prefWidth="259.0" text="Object" GridPane.columnIndex="2">
+                           <tooltip>
+                              <Tooltip text="Exports Object def fields into java code" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpAnimFields" prefHeight="42.0" prefWidth="139.0" text="Anim" GridPane.columnIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#dumpGfxFields" prefHeight="61.0" prefWidth="190.0" text="Gfx" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#dumpVarbitFields" prefHeight="52.0" prefWidth="175.0" text="Varbit" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#dumpFloFields" prefHeight="47.0" prefWidth="183.0" text="Flo" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#dumpIdkFields" prefHeight="78.0" prefWidth="190.0" text="Idk" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane collapsible="false" text="Misc">
+               <content>
+                  <GridPane hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#dumpSprites" prefHeight="106.0" prefWidth="170.0" text="Sprites">
+                           <tooltip>
+                              <Tooltip text="Exports sprites into PNG files" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpMapImage" prefHeight="91.0" prefWidth="189.0" text="Map Image" GridPane.columnIndex="1">
+                           <tooltip>
+                              <Tooltip text="Creates a map and shows which regions you have decrypted" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpSoundEffects" prefHeight="71.0" prefWidth="162.0" text="Sound Effects" GridPane.columnIndex="2">
+                           <tooltip>
+                              <Tooltip text="Exports Sound Effects into WAV format" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#scrapXTEAS" prefHeight="69.0" prefWidth="184.0" text="XTEAs" GridPane.rowIndex="2">
+                           <tooltip>
+                              <Tooltip text="Retrieves XTEAs from RuneLite's API webservice" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dumpItemList" prefHeight="83.0" prefWidth="209.0" text="Item List" GridPane.rowIndex="1">
+                           <tooltip>
+                              <Tooltip text="Creates an item list" />
+                           </tooltip></Button>
+                        <Button mnemonicParsing="false" onAction="#dumpNpcList" prefHeight="90.0" prefWidth="277.0" text="Npc List" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <tooltip>
+                              <Tooltip text="Creates a npc list" />
+                           </tooltip></Button>
+                        <Button mnemonicParsing="false" onAction="#dumpObjectList" prefHeight="91.0" prefWidth="272.0" text="Object List" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <tooltip>
+                              <Tooltip text="Creates an object list" />
+                           </tooltip></Button>
+                        <Button mnemonicParsing="false" onAction="#checkRevision" prefHeight="54.0" prefWidth="192.0" text="Check Version" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <tooltip>
+                              <Tooltip text="Tells you what version Old School RunScape is currently at" />
+                           </tooltip></Button>
+                        <Button mnemonicParsing="false" onAction="#fetchCache" prefHeight="69.0" prefWidth="332.0" text="Fetch Cache" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <VBox alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text fx:id="title" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="OSDC">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <Button fx:id="minBtn" minHeight="20.0" minWidth="45.0" mnemonicParsing="false" onAction="#minimizeProgram">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="maxBtn" minHeight="20.0" minWidth="45.0" mnemonicParsing="false">
+                     <HBox.margin>
+                        <Insets right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="closeBtn" minHeight="20.0" minWidth="45.0" mnemonicParsing="false" onAction="#closeProgram">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#viewDirectory" text="View" />
+                        <MenuItem mnemonicParsing="false" onAction="#closeProgram" text="Close" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>
